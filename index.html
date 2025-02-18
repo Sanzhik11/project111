@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Make's Barbershop</h1>
+                <p class="subtitle">Getting your hair ready</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="current-page">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="home">
+            <img class="bg-image" src="img/make.webp" alt="bg-image">
+            <div class="overplay">
+                <div class="landing-text">
+
+                    <a href="#" class="button btn-hire" id="open-appointment-form">Appointment</a>
+                    <hr>
+                    <h3 style="color: #fff;">Getting your hair ready</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="appointment-modal" class="appointment-modal">
+        <div class="appointment-modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Бронь жасау</h2>
+            <form id="appointment-form">
+                <label for="name">Толық аты-жөніңіз:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="phone">Телефон нөмірі:</label>
+                <input type="text" id="phone" name="phone" required><br><br>
+
+
+                <label for="date">Күні:</label>
+                <div id="date-picker">
+                    <div class="card" data-date="2025-02-20">20 Ақпан</div>
+                    <div class="card" data-date="2025-02-21">21 Ақпан</div>
+                    <div class="card" data-date="2025-02-22">22 Ақпан</div>
+                </div><br><br>
+
+                <label for="time">Бос уақыт:</label>
+                <div id="time-picker">
+                </div><br><br>
+
+                <label for="service">Қызмет түрі:</label>
+                <select id="service" name="service">
+                    <option value="haircut">Шаш қию</option>
+                    <option value="beard">Борода қиып алу</option>
+                    <option value="massage">Массаж</option>
+                </select><br><br>
+                <button type="submit" class="button">Бронь жасау</button>
+            </form>
+        </div>
+    </div>
+
+            <script src="js/script.js"></script>
+</body>
+</html>
