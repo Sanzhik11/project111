@@ -1,56 +1,65 @@
+const modal = document.getElementById('appointment-modal');
+const openModalButton = document.getElementById('open-appointment-form');
+const closeModalButton = document.getElementById('close-modal');
 
-        const modal = document.getElementById('appointment-modal');
-        const openModalButton = document.getElementById('open-appointment-form');
-        const closeModalButton = document.getElementById('close-modal');
+openModalButton.onclick = function() {
+    modal.style.display = "block";
+}
 
-        openModalButton.onclick = function() {
-            modal.style.display = "block";
-        }
+closeModalButton.onclick = function() {
+    modal.style.display = "none";
+}
 
-        closeModalButton.onclick = function() {
-            modal.style.display = "none";
-        }
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
 
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
+const datePicker = document.getElementById('date-picker');
 
+function generateDates() {
+    const today = new Date();
+    datePicker.innerHTML = '';
 
-        const dateCards = document.querySelectorAll('#date-picker .card');
-        dateCards.forEach(card => {
-            card.addEventListener('click', function() {
-                dateCards.forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-                updateAvailableTimes(card.getAttribute('data-date'));
-            });
+    for (let i = 0; i < 5; i++) { // Келесі 5 күнді қосу
+        let futureDate = new Date();
+        futureDate.setDate(today.getDate() + i);
+        
+        let formattedDate = futureDate.toISOString().split('T')[0]; // YYYY-MM-DD форматы
+        
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.setAttribute('data-date', formattedDate);
+        card.textContent = formattedDate;
+
+        card.addEventListener('click', function() {
+            document.querySelectorAll('#date-picker .card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            updateAvailableTimes(formattedDate);
         });
 
-  
-        function updateAvailableTimes(date) {
-            const timePicker = document.getElementById('time-picker');
-            timePicker.innerHTML = ''; 
+        datePicker.appendChild(card);
+    }
+}
 
-            
-            let availableTimes = [];
-            if (date === "2025-02-20") {
-                availableTimes = ["10:00", "12:00", "14:00", "16:00"];
-            } else if (date === "2025-02-21") {
-                availableTimes = ["09:00", "11:00", "13:00", "15:00"];
-            } else if (date === "2025-02-22") {
-                availableTimes = ["08:00", "10:00", "12:00", "14:00"];
-            }
+function updateAvailableTimes(date) {
+    const timePicker = document.getElementById('time-picker');
+    timePicker.innerHTML = '';
 
-            availableTimes.forEach(time => {
-                const timeCard = document.createElement('div');
-                timeCard.classList.add('hour-card');
-                timeCard.textContent = time;
-                timeCard.addEventListener('click', function() {
-                    const allTimeCards = document.querySelectorAll('.hour-card');
-                    allTimeCards.forEach(t => t.classList.remove('selected'));
-                    timeCard.classList.add('selected');
-                });
-                timePicker.appendChild(timeCard);
-            });
-        }
+    let availableTimes = ["08:00", "10:00", "12:00", "14:00", "16:00"];
+    
+    availableTimes.forEach(time => {
+        const timeCard = document.createElement('div');
+        timeCard.classList.add('hour-card');
+        timeCard.textContent = time;
+        timeCard.addEventListener('click', function() {
+            document.querySelectorAll('.hour-card').forEach(t => t.classList.remove('selected'));
+            timeCard.classList.add('selected');
+        });
+        timePicker.appendChild(timeCard);
+    });
+}
+
+// Күндерді бастапқы жүктеу
+generateDates();
