@@ -99,14 +99,14 @@ nav a:focus{
 }
 
 
-/* Home page */
+
 .overplay{
     position: relative;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    /* background: black; */
+    
     color: white;
     display: flex;
     align-items: center;
@@ -177,7 +177,7 @@ nav a:focus{
 
 
 
-/* Gallery section */
+
 .gallery-header{
     text-align: center;
     padding: 32px;
@@ -239,7 +239,7 @@ nav a:focus{
 
 
 
-/* Team section */
+
 .team-header{
     text-align: center;
     padding: 32px;
@@ -276,7 +276,7 @@ nav a:focus{
     padding: 0 14px;
 }
 
-/* Contact section */
+
 .contact h1{
     text-align: center;
     font-weight: 700;
@@ -927,7 +927,7 @@ nav a:focus{
     margin-bottom: 0;
 }
 
-/* Home page */
+
 .overplay{
     position: relative;
     height: 100%;
@@ -982,7 +982,7 @@ nav a:focus{
 }
 }
 
-/* Gallery section */
+
 .gallery-header{
     text-align: center;
     padding: 32px;
@@ -1024,7 +1024,8 @@ nav a:focus{
     }
 }
 
-/* Team section */
+
+
 .team-header{
     text-align: center;
     padding: 32px;
@@ -1048,7 +1049,7 @@ nav a:focus{
     color: #181b2c;
 }
 
-/* Contact section */
+
 .contact h1{
     text-align: center;
     font-weight: 700;
@@ -1135,5 +1136,75 @@ button:hover {
 @media(max-width: 600px) {
     .service-card {
         width: 80%;
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .container {
+        padding: 10px;
+    }
+
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+    }
+
+
+    .header {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .site-title h1 {
+        font-size: 24px;
+    }
+
+    .site-title p.subtitle {
+        font-size: 14px;
+    }
+
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .card h3 {
+        margin-top: 10px;
+        font-size: 16px;
     }
 }
