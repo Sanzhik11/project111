@@ -1166,7 +1166,7 @@ button:hover {
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr; /* 1 column */
+        grid-template-columns: 1fr; 
     }
 
     .gallery-header h1 {
@@ -1179,5 +1179,51 @@ button:hover {
 
     .card h3 {
         font-size: 1em;
+    }
+}
+
+
+
+
+
+
+
+.appointment-modal {
+    width: 90%;
+    max-width: 400px;
+    height: auto; 
+    max-height: 80vh;
+    overflow-y: auto; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.appointment-modal-content {
+    text-align: center;
+}
+
+.button {
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+@media (max-width: 480px) {
+    .appointment-modal {
+        width: 95%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px;
     }
 }
